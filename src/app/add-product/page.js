@@ -1,15 +1,16 @@
+'use client'
 import {useState} from 'react';
 
 export default function AddProductsPage() {
 
-  const emptyForm = { name: "", price: 0 };
+  const emptyForm = { name: "", price: '' };
   const [formData, setFormData] = useState(emptyForm);
   const [mensaje, setMensaje] = useState('');
 
   async function addProduct(e){
     e.preventDefault();
     
-    if (!formData.name || !!formData.price) {
+    if (!formData.name || !formData.price) {
       setMensaje('Introduce nombre y precio');
       return;
     }

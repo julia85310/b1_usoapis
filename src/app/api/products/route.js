@@ -20,18 +20,18 @@ export async function POST(request) {
 
     if (!newProduct.name || !newProduct.price) {
       return new Response(
-        JSON.stringify({ error: "Name and price are required" }),
+        JSON.stringify({ error: "Nombre y precio requeridos" }),
         { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
     products.push(newProduct);
     return new Response(
-      JSON.stringify({ message: "Product added successfully", product: newProduct }),
+      JSON.stringify({ message: "Producto añadido correctamente", product: newProduct }),
       { status: 201, headers: { "Content-Type": "application/json" } }
     );
   } catch (error) {
     return new Response(
-      JSON.stringify({ error: "Invalid request" }),
+      JSON.stringify({ error: "Error, no se ha podido realizar la petición" }),
       { status: 400, headers: { "Content-Type": "application/json" } }
     );
   }
